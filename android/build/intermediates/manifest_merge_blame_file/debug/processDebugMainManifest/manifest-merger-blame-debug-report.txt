@@ -1,0 +1,145 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.snakegame"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="com.android.vending.BILLING" />
+11-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:10:5-67
+11-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:10:22-64
+12
+13    <queries>
+13-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:12:5-16:15
+14        <intent>
+14-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:13:9-15:18
+15            <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
+15-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:14:13-91
+15-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:14:21-88
+16        </intent>
+17    </queries> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+18    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:24:5-79
+19-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:24:22-76
+20    <uses-permission android:name="android.permission.INTERNET" />
+20-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:25:5-67
+20-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:25:22-64
+21
+22    <permission
+22-->[androidx.core:core:1.9.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6325cad999e7e25eaa9301d33937688b\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+23        android:name="com.snakegame.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+23-->[androidx.core:core:1.9.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6325cad999e7e25eaa9301d33937688b\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+24        android:protectionLevel="signature" />
+24-->[androidx.core:core:1.9.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6325cad999e7e25eaa9301d33937688b\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+25
+26    <uses-permission android:name="com.snakegame.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+26-->[androidx.core:core:1.9.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6325cad999e7e25eaa9301d33937688b\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+26-->[androidx.core:core:1.9.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6325cad999e7e25eaa9301d33937688b\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+27
+28    <application
+28-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:5:5-18:19
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.9.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6325cad999e7e25eaa9301d33937688b\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+30        android:debuggable="true"
+31        android:extractNativeLibs="true"
+32        android:icon="@android:drawable/sym_def_app_icon"
+32-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:7:9-58
+33        android:label="Snake Game"
+33-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:6:9-35
+34        android:testOnly="true"
+35        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+35-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:8:9-65
+36        <activity
+36-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:10:9-16:20
+37            android:name="com.snakegame.AndroidLauncher"
+37-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:10:19-63
+38            android:exported="true" >
+38-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:11:13-36
+39            <intent-filter>
+39-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:12:13-15:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:13:17-69
+40-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:13:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:14:17-77
+42-->C:\Users\mcarh\Downloads\SnakeGameBillingBase\android\src\main\AndroidManifest.xml:14:27-74
+43            </intent-filter>
+44        </activity>
+45
+46        <meta-data
+46-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:19:9-21:37
+47            android:name="com.google.android.play.billingclient.version"
+47-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:20:13-73
+48            android:value="6.0.1" />
+48-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:21:13-34
+49
+50        <activity
+50-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:23:9-27:75
+51            android:name="com.android.billingclient.api.ProxyBillingActivity"
+51-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:24:13-78
+52            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+52-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:25:13-96
+53            android:exported="false"
+53-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:26:13-37
+54            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+54-->[com.android.billingclient:billing:6.0.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\5c5b936f9fd23233cd885fde75bacd53\transformed\jetified-billing-6.0.1\AndroidManifest.xml:27:13-72
+55
+56        <service
+56-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+57            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+57-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+58            android:exported="false" >
+58-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+59            <meta-data
+59-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+60                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+60-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+61                android:value="cct" />
+61-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\c9fe6e5a2599a6fae29960c47cbe75b1\transformed\jetified-transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+62        </service>
+63        <service
+63-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+64            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+64-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+65            android:exported="false"
+65-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+66            android:permission="android.permission.BIND_JOB_SERVICE" >
+66-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+67        </service>
+68
+69        <receiver
+69-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+70            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+70-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:33:13-132
+71            android:exported="false" />
+71-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\mcarh\.gradle\caches\8.12\transforms\f9d2f72aa20f162f786cf4a9adf71c56\transformed\jetified-transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+72
+73        <provider
+73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+74            android:name="androidx.startup.InitializationProvider"
+74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+75            android:authorities="com.snakegame.androidx-startup"
+75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+76            android:exported="false" >
+76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+77            <meta-data
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+78                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+79                android:value="androidx.startup" />
+79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\mcarh\.gradle\caches\8.12\transforms\6c9717b849fcad4dd51df8a06563b3cf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+80            <meta-data
+80-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\8071ebbd9825c349788e01e00e130481\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+81                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+81-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\8071ebbd9825c349788e01e00e130481\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+82                android:value="androidx.startup" />
+82-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\mcarh\.gradle\caches\8.12\transforms\8071ebbd9825c349788e01e00e130481\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+83        </provider>
+84    </application>
+85
+86</manifest>

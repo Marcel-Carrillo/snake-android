@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.snakegame'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.snakegame"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    packagingOptions {
+        // Opcional: solo si hay conflictos con archivos .so duplicados
+        pickFirst 'lib/x86_64/libgdx.so'
+        pickFirst 'lib/armeabi-v7a/libgdx.so'
+        pickFirst 'lib/arm64-v8a/libgdx.so'
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs'] // Ruta estándar para librerías nativas
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+configurations { natives }
+
+dependencies {
+    implementation project(':core')
+
+    // LibGDX
+    implementation 'com.badlogicgames.gdx:gdx-backend-android:1.11.0'
+
+    // Nativas (se copiarán automáticamente a jniLibs/)
+    natives 'com.badlogicgames.gdx:gdx-platform:1.11.0:natives-armeabi-v7a'
+    natives 'com.badlogicgames.gdx:gdx-platform:1.11.0:natives-arm64-v8a'
+    natives 'com.badlogicgames.gdx:gdx-platform:1.11.0:natives-x86'
+    natives 'com.badlogicgames.gdx:gdx-platform:1.11.0:natives-x86_64'
+
+    // Otras dependencias
+    implementation 'com.android.billingclient:billing:6.0.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+}
+
+task copyAndroidNatives {
+    doFirst {
+        def archMap = [
+                'natives-armeabi-v7a': 'armeabi-v7a',
+                'natives-arm64-v8a' : 'arm64-v8a',
+                'natives-x86'       : 'x86',
+                'natives-x86_64'    : 'x86_64'
+        ]
+
+        archMap.values().each { arch ->
+            file("src/main/jniLibs/$arch/").mkdirs()
+        }
+
+        configurations.natives.files.each { jar ->
+            archMap.each { key, arch ->
+                if (jar.name.contains(key)) {
+                    copy {
+                        from zipTree(jar)
+                        into "src/main/jniLibs/$arch"
+                        include "*.so"
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Ejecutar copyAndroidNatives antes de mergeJniLibs
+tasks.whenTaskAdded { task ->
+    if (task.name.startsWith('merge') && task.name.endsWith('JniLibs')) {
+        task.dependsOn copyAndroidNatives
+    }
+}
+
+// Opcional: Limpieza de librerías antiguas
+task cleanJniLibs(type: Delete) {
+    delete fileTree(dir: 'src/main/jniLibs', include: '**/*.so')
+}
+clean.dependsOn cleanJniLibs
