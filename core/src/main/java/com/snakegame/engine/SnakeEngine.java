@@ -1,5 +1,7 @@
 package com.snakegame.engine;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -16,6 +18,12 @@ public class SnakeEngine {
     private final int width, height;
     private boolean alive = true;
     private GameState gameState = GameState.RUNNING;
+    private int score = 0;
+    private int highScore = 0;
+    private Preferences prefs;
+    private int lives = 3;
+    private float speedMultiplier = 1.0f;
+
 
     public SnakeEngine(int screenWidth, int screenHeight) {
         segmentTexture = new Texture("segment.png");
@@ -27,27 +35,61 @@ public class SnakeEngine {
             body.add(new Vector2(200 - i * 20, 200));
         }
         spawnFood();
+        prefs = Gdx.app.getPreferences("SnakeGamePrefs");
+        highScore = prefs.getInteger("highScore", 0);
     }
 
     public void update(float delta) {
-        if (!alive) return;
-        timer += delta;
-        if (timer >= moveInterval) {
-            timer = 0;
-            Vector2 newHead = new Vector2(body.get(0)).add(direction);
-            if (collidesWithWall(newHead) || collidesWithSelf(newHead)) {
-                alive = false;
-                gameState = GameState.GAME_OVER;
-                return;
+        if (!alive || body.isEmpty()) return;
+        if(lives != 0){
+            timer += delta * speedMultiplier;
+            if (timer >= moveInterval) {
+                timer = 0;
+                Vector2 newHead = new Vector2(body.get(0)).add(direction);
+
+                if (collidesWithWall(newHead) || collidesWithSelf(newHead)) {
+                    lives--;
+                    if (lives > 0) {
+                        // Reiniciar la serpiente pero sin resetear score ni highScore
+                        body.clear();
+                        for (int i = 0; i < 5; i++) {
+                            body.add(new Vector2(200 - i * 20, 200));
+                        }
+                        direction = new Vector2(20, 0);
+                        alive = true;
+                        gameState = GameState.RUNNING;
+                        return;
+                    } else {
+                        alive = false;
+                        gameState = GameState.GAME_OVER;
+                        return;
+                    }
+                }
+
+                body.add(0, newHead);
+
+                if (newHead.epsilonEquals(food, 1f)) {
+                    score++;
+                    if (score > highScore) {
+                        highScore = score;
+                        prefs.putInteger("highScore", highScore);
+                        prefs.flush();
+                    }
+                    spawnFood();
+                    increaseSpeed();
+                } else {
+                    if (body.size() > 0) {
+                        body.remove(body.size() - 1);
+                    }
+                }
             }
-            body.add(0, newHead);
-            if (newHead.epsilonEquals(food, 1f)) {
-                spawnFood();
-            } else {
-                body.remove(body.size() - 1);
-            }
+        }else{
+            alive = false;
         }
+
+
     }
+
 
     public void render(SpriteBatch batch) {
         for (Vector2 part : body) {
@@ -89,6 +131,9 @@ public class SnakeEngine {
         spawnFood();
         alive = true;
         gameState = GameState.RUNNING;
+        score = 0;
+        lives = 3;
+        speedMultiplier = 1.0f;
     }
 
     public boolean isAlive() {
@@ -106,5 +151,25 @@ public class SnakeEngine {
 
     public Vector2 getHeadPosition() {
         return body.get(0);
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void increaseSpeed() {
+        speedMultiplier += 0.05f; // Aumenta la velocidad un 5%
+    }
+
+    public float getSpeedMultiplier() {
+        return speedMultiplier;
     }
 }

@@ -50,7 +50,7 @@ public class GameScreen implements Screen {
         snakeEngine.render(batch);
 
         if (snakeEngine.getGameState() == GameState.RUNNING) {
-            font.draw(batch, "Controles: ↑ ↓ ← →", 20, 40);
+            //font.draw(batch, "Controles: ↑ ↓ ← →", 20, 40);
             font.draw(batch, "↑", btnUp.x + 35, btnUp.y + 65);
             font.draw(batch, "↓", btnDown.x + 35, btnDown.y + 65);
             font.draw(batch, "←", btnLeft.x + 35, btnLeft.y + 65);
@@ -58,8 +58,14 @@ public class GameScreen implements Screen {
         } else if (snakeEngine.getGameState() == GameState.GAME_OVER) {
             font.draw(batch, "¡Has perdido!", Gdx.graphics.getWidth() / 2f - 60, Gdx.graphics.getHeight() / 2f + 60);
             font.draw(batch, "[ Reintentar ]", restartButtonBounds.x + 10, restartButtonBounds.y + 35);
+            // 👇 Muestra los puntos alcanzados
+            font.draw(batch, "Puntos: " + snakeEngine.getScore(),
+                    Gdx.graphics.getWidth() / 2f - 40,
+                    Gdx.graphics.getHeight() / 2f + 30);
         }
-
+        font.draw(batch, "Puntos: " + snakeEngine.getScore(), 20, Gdx.graphics.getHeight() - 20);
+        font.draw(batch, "Récord: " + snakeEngine.getHighScore(), 20, Gdx.graphics.getHeight() - 50);
+        font.draw(batch, "Vidas: " + snakeEngine.getLives(), 20, Gdx.graphics.getHeight() - 80);
         batch.end();
     }
 
